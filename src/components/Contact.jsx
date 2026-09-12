@@ -35,8 +35,8 @@ export default function Contact() {
     },
     {
       label: "Portfolio",
-      value: "neo.neoorzero.co.id",
-      href: "https://neo.neoorzero.co.id",
+      value: "neo.neoorzero.my.id",
+      href: "https://neo.neoorzero.my.id",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
           <circle cx="12" cy="12" r="10"></circle>
