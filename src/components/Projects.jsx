@@ -1,5 +1,24 @@
 import { ProjectCoverPlaceholder } from './Placeholders'
 
+// auto-import any image placed in src/assets/projects/ for project covers
+// supported files:
+//   stematel-art-website.*  -> StematelArt-Project-Website
+//   productivity-tracker.* -> Productivity Tracker
+//   namilontar.*            -> NamiLontar
+const coverImages = import.meta.glob('../assets/projects/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' })
+
+function getCoverImage(title) {
+  const map = {
+    "StematelArt-Project-Website": "stematel-art-website",
+    "Productivity Tracker": "productivity-tracker",
+    "NamiLontar": "namilontar",
+  }
+  const key = map[title]
+  if (!key) return null
+  const entry = Object.entries(coverImages).find(([path]) => path.includes(`/${key}.`))
+  return entry ? entry[1] : null
+}
+
 const projects = [
   {
     title: "StematelArt-Project-Website",
@@ -42,7 +61,20 @@ export default function Projects() {
             aria-label={`View ${project.title} on GitHub`}
             className="group rounded-2xl glass-card overflow-hidden flex flex-col hover:-translate-y-1.5 focus:-translate-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 cursor-pointer"
           >
-            <ProjectCoverPlaceholder title={project.title} />
+            {(() => {
+              const cover = getCoverImage(project.title)
+              return cover ? (
+                <img
+                  src={cover}
+                  alt={`${project.title} cover`}
+                  className="w-full object-cover border-b border-white/10"
+                  style={{ aspectRatio: "16 / 9" }}
+                  loading="lazy"
+                />
+              ) : (
+                <ProjectCoverPlaceholder title={project.title} />
+              )
+            })()}
 
             <div className="p-6 flex-1 flex flex-col justify-between">
               <div>
