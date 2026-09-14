@@ -9,8 +9,8 @@ const projects = [
   },
   {
     title: "Productivity Tracker",
-    description: "A web-based POS system for Kedai Rasa Kita, featuring sales checkout, inventory management, product and category management, transaction history, reporting, and role-based access.",
-    tags: ["React", "PHP", "PostgreSQL", "POS System"],
+    description: "A clean, minimal workspace app for logging tasks, recording daily write-ups, and generating AI-driven summaries of each day's progress using Gemini.",
+    tags: ["React 19", "TypeScript", "Express", "MySQL", "Tailwind CSS 4", "Google Gemini"],
     githubUrl: "https://github.com/Neotsaqif/Productivity-Tracker"
   },
   {
