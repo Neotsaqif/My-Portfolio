@@ -4,17 +4,20 @@ const projects = [
   {
     title: "StematelArt-Project-Website",
     description: "A community-driven art platform for artists to share, discover, and interact with artwork, featuring social engagement, rankings, contests, and artist profiles.",
-    tags: ["React", "Tailwind CSS", "Laravel", "REST API"]
+    tags: ["React", "Tailwind CSS", "Laravel", "REST API"],
+    githubUrl: "https://github.com/Neotsaqif/StematelArt-Project-Website"
   },
   {
-    title: "kedai-rasa-kita-pos-website",
+    title: "Productivity Tracker",
     description: "A web-based POS system for Kedai Rasa Kita, featuring sales checkout, inventory management, product and category management, transaction history, reporting, and role-based access.",
-    tags: ["React", "PHP", "PostgreSQL", "POS System"]
+    tags: ["React", "PHP", "PostgreSQL", "POS System"],
+    githubUrl: "https://github.com/Neotsaqif/Productivity-Tracker"
   },
   {
     title: "NamiLontar",
     description: "A Laravel-based web application with MySQL database integration and Midtrans payment gateway support.",
-    tags: ["Laravel", "MySQL", "Midtrans", "Payment Gateway"]
+    tags: ["Laravel", "MySQL", "Midtrans", "Payment Gateway"],
+    githubUrl: "https://github.com/Neotsaqif/NamiLontar"
   }
 ]
 
@@ -31,9 +34,13 @@ export default function Projects() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
-          <div
+          <a
             key={project.title}
-            className="group rounded-2xl glass-card overflow-hidden flex flex-col hover:-translate-y-1.5"
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} on GitHub`}
+            className="group rounded-2xl glass-card overflow-hidden flex flex-col hover:-translate-y-1.5 focus:-translate-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 cursor-pointer"
           >
             <ProjectCoverPlaceholder title={project.title} />
 
@@ -58,7 +65,7 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
